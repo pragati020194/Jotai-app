@@ -1,23 +1,32 @@
 import logo from './logo.svg';
 import './App.css';
+import {atom, useAtom} from 'jotai';
+
+const countAtom = atom(0);
+
+const Count = () => {
+  const [count] = useAtom(countAtom);
+  
+  return (
+    <h2>Count: {count} </h2>
+  )
+}
+
+const CountIncreaser = () => {
+  const [setCount] = useAtom(countAtom);
+
+  return (
+    <button onClick={() => setCount(c => c + 1)} >
+      +
+    </button>
+  )
+}
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Count />
+      <CountIncreaser />
     </div>
   );
 }
