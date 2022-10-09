@@ -1,5 +1,5 @@
-import './App.css';
-import {atom, useAtom} from 'jotai';
+import './App.css'
+import {atom, useAtom} from 'jotai'
 
 const countAtom = atom(0);
 
